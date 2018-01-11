@@ -62,7 +62,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 ## Setting up the application 
 
-The web interface is at `<your ip>:5075` , to set up indexers and connections to your nzb download applications.
+The web interface is at `<your ip>:5076` , to set up indexers and connections to your nzb download applications.
 
 
 ## Info
