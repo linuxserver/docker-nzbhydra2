@@ -77,4 +77,4 @@ The web interface is at `<your ip>:5075` , to set up indexers and connections to
 
 ## Versions
 
-+ **11.01.16:** Initial Release.
++ **11.01.18:** Initial Release.
