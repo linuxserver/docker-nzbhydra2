@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+
+# unset unraid specific ENV to avoid crashing
+unset HOST_OS
+
+cd /app/hydra2 || exit
+
+exec \
+	s6-setuidgid abc /usr/bin/python nzbhydra2wrapper.py \
+	--nobrowser --datafolder /config
