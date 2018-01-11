@@ -15,7 +15,9 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 # linuxserver/hydra2
 [![](https://images.microbadger.com/badges/version/linuxserver/hydra2.svg)](https://microbadger.com/images/linuxserver/hydra2 "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/hydra2.svg)](https://microbadger.com/images/linuxserver/hydra2 "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/hydra2.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/hydra2.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-hydra2)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-hydra2/)
 
-NZBHydra is a meta search for NZB indexers and the "spiritual successor" to NZBmegasearcH. It provides easy access to a number of raw and newznab based indexers. [hydra](https://github.com/theotherp/nzbhydra)
+_NZBHydra 2_ is a meta search application for NZB indexers, the "spiritual successor" to _NZBmegasearcH_, and an evolution of the original application _[NZBHydra](https://github.com/theotherp/nzbhydra)_ . It provides easy access to a number of raw and newznab based indexers. 
+
+The application NZBHydra 2 is currently in its early stages and is in active development. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version.
 
 [![hydra](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png)][appurl]
 
@@ -27,7 +29,7 @@ docker create --name=hydra2 \
 -v <nzb download>:/downloads \
 -e PGID=<gid> -e PUID=<uid> \
 -e TZ=<timezone> \
--p 5075:5075 linuxserver/hydra2
+-p 5076:5076 linuxserver/hydra2
 ```
 
 ## Parameters
@@ -38,7 +40,7 @@ So -p 8080:80 would expose port 80 from inside the container to be accessible fr
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
 
 
-* `-p 5075` - the port(s)
+* `-p 5076` - the port(s)
 * `-v /config` - Where hydra2 should store config files
 * `-v /downloads` - NZB download folder
 * `-e PGID` for GroupID - see below for explanation
