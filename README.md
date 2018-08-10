@@ -47,7 +47,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` for timezone EG. Europe/London
 
-It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it hydra2 /bin/bash`.
+It is based on ubuntu bionic with s6 overlay, for shell access whilst the container is running do `docker exec -it hydra2 /bin/bash`.
 
 ### User / Group Identifiers
 
@@ -79,5 +79,6 @@ The web interface is at `<your ip>:5076` , to set up indexers and connections to
 
 ## Versions
 
++ **10.08.18:** Rebase to ubuntu bionic.
 + **15.04.18:** Change to port 5076 in the Dockerfile.
 + **11.01.18:** Initial Release.
