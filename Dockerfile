@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.7
+FROM lsiobase/ubuntu:bionic
 
 # set version label
 ARG BUILD_DATE
@@ -6,13 +6,18 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="sparklyballs"
 
+# environment settings
+ARG DEBIAN_FRONTEND="noninteractive"
+
 RUN \
  echo "**** install packages ****" && \
- apk add --no-cache \
+ apt-get update && \
+ apt-get install -y \
 	curl \
-	openjdk8-jre\
-	python \
 	unzip && \
+ apt-get install --no-install-recommends -y \
+	openjdk-8-jre-headless \
+	python && \
  echo "**** install hydra2 ****" && \
  HYDRA_VER=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases/latest" \
 	| awk '/tag_name/{print $4;exit}' FS='[""]') && \
@@ -28,7 +33,9 @@ RUN \
  chmod +x /app/hydra2/nzbhydra2wrapper.py && \
  echo "**** cleanup ****" && \
  rm -rf \
-	/tmp/*
+	/tmp/* \
+	/var/lib/apt/lists/* \
+	/var/tmp/*
 
 # copy local files
 COPY root/ /
