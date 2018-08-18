@@ -79,7 +79,7 @@ The web interface is at `<your ip>:5076` , to set up indexers and connections to
 
 ## Versions
 
-+ **18.08.18:** Bump java version to 10, (bionic currently refers to is as version 11).
++ **18.08.18:** Bump java version to 10, (bionic currently refers to it as version 11).
 + **10.08.18:** Rebase to ubuntu bionic.
 + **15.04.18:** Change to port 5076 in the Dockerfile.
 + **11.01.18:** Initial Release.
