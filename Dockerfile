@@ -16,7 +16,7 @@ RUN \
 	curl \
 	unzip && \
  apt-get install --no-install-recommends -y \
-	openjdk-8-jre-headless \
+	openjdk-11-jre-headless \
 	python && \
  echo "**** install hydra2 ****" && \
  HYDRA_VER=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases/latest" \
