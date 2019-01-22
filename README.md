@@ -15,7 +15,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 # linuxserver/hydra2
 [![](https://images.microbadger.com/badges/version/linuxserver/hydra2.svg)](https://microbadger.com/images/linuxserver/hydra2 "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/hydra2.svg)](https://microbadger.com/images/linuxserver/hydra2 "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/hydra2.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/hydra2.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-hydra2)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-hydra2/)
 
-_NZBHydra 2_ is a meta search application for NZB indexers, the "spiritual successor" to _NZBmegasearcH_, and an evolution of the original application _[NZBHydra](https://github.com/theotherp/nzbhydra)_ . It provides easy access to a number of raw and newznab based indexers. 
+_NZBHydra 2_ is a meta search application for NZB indexers, the "spiritual successor" to _NZBmegasearcH_, and an evolution of the original application _[NZBHydra](https://github.com/theotherp/nzbhydra)_ . It provides easy access to a number of raw and newznab based indexers.
 
 The application NZBHydra 2 is currently in its early stages and is in active development. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version.
 
@@ -34,7 +34,7 @@ docker create --name=hydra2 \
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
+`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
@@ -60,7 +60,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
-## Setting up the application 
+## Setting up the application
 
 The web interface is at `<your ip>:5076` , to set up indexers and connections to your nzb download applications.
 
@@ -69,7 +69,7 @@ The web interface is at `<your ip>:5076` , to set up indexers and connections to
 
 * To monitor the logs of the container in realtime `docker logs -f hydra2`.
 
-* container version number 
+* container version number
 
 `docker inspect -f '{{ index .Config.Labels "build_version" }}' hydra2`
 
