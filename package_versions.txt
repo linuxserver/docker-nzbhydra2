@@ -89,10 +89,10 @@ libnghttp2-14/now 1.30.0-1ubuntu1
 libnspr4/now 2:4.18-1ubuntu1
 libnss3/now 2:3.35-2ubuntu2.2
 libp11-kit0/now 0.23.9-2
-libpam-modules/now 1.1.8-3.6ubuntu2
-libpam-modules-bin/now 1.1.8-3.6ubuntu2
-libpam-runtime/now 1.1.8-3.6ubuntu2
-libpam0g/now 1.1.8-3.6ubuntu2
+libpam-modules/now 1.1.8-3.6ubuntu2.18.04.1
+libpam-modules-bin/now 1.1.8-3.6ubuntu2.18.04.1
+libpam-runtime/now 1.1.8-3.6ubuntu2.18.04.1
+libpam0g/now 1.1.8-3.6ubuntu2.18.04.1
 libpcre3/now 2:8.39-9
 libpcsclite1/now 1.8.23-1
 libpng16-16/now 1.6.34-1ubuntu0.18.04.1
@@ -127,7 +127,7 @@ libwind0-heimdal/now 7.5.0+dfsg-1
 libx11-6/now 2:1.6.4-3ubuntu0.2
 libx11-data/now 2:1.6.4-3ubuntu0.2
 libxau6/now 1:1.0.8-1
-libxcb1/now 1.13-1
+libxcb1/now 1.13-2~ubuntu18.04
 libxdmcp6/now 1:1.1.2-3
 libxext6/now 2:1.3.3-1
 libxi6/now 2:1.7.9-1
