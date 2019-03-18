@@ -45,7 +45,7 @@ libc-bin/now 2.27-3ubuntu1
 libc6/now 2.27-3ubuntu1
 libcap-ng0/now 0.7.7-3.1
 libcom-err2/now 1.44.1-1ubuntu1.1
-libcups2/now 2.2.7-1ubuntu2.3
+libcups2/now 2.2.7-1ubuntu2.4
 libcurl4/now 7.58.0-2ubuntu3.6
 libdb5.3/now 5.3.28-13.1ubuntu1
 libdbus-1-3/now 1.12.2-1ubuntu1
