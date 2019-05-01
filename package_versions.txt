@@ -97,7 +97,7 @@ libpam-modules-bin1.1.8-3.6ubuntu2.18.04.1
 libpam-runtime1.1.8-3.6ubuntu2.18.04.1
 libpcre32:8.39-9
 libpcsclite11.8.23-1
-libpng16-161.6.34-1ubuntu0.18.04.1
+libpng16-161.6.34-1ubuntu0.18.04.2
 libprocps62:3.3.12-3ubuntu1.1
 libpsl50.19.1-5build1
 libpython2.7-minimal2.7.15~rc1-1ubuntu0.1
