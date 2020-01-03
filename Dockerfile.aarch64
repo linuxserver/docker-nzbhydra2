@@ -5,7 +5,7 @@ ARG BUILD_DATE
 ARG VERSION
 ARG HYDRA2_RELEASE
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="sparklyballs"
+LABEL maintainer="nemchik"
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -15,14 +15,15 @@ RUN \
  apt-get update && \
  apt-get install -y \
 	curl \
+	jq \
 	unzip && \
  apt-get install --no-install-recommends -y \
 	openjdk-11-jre-headless \
-	python && \
+	python3 && \
  echo "**** install hydra2 ****" && \
  if [ -z ${HYDRA2_RELEASE+x} ]; then \
 	HYDRA2_RELEASE=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases/latest" \
-	| awk '/tag_name/{print $4;exit}' FS='[""]'); \
+	| jq -r .tag_name); \
  fi && \
  HYDRA2_VER=${HYDRA2_RELEASE#v} && \
  curl -o \
@@ -45,4 +46,4 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 5076
-VOLUME /config /downloads
+VOLUME /config

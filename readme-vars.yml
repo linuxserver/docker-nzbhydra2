@@ -6,7 +6,7 @@ project_url: "https://github.com/theotherp/nzbhydra2"
 project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png"
 project_blurb: |
   [{{ project_name|capitalize }}]({{ project_url }}) is a meta search application for NZB indexers, the "spiritual successor" to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra).
-  
+
   It provides easy access to a number of raw and newznab based indexers. The application NZBHydra 2 is currently in its early stages and is in active development. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version.
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false
@@ -56,6 +56,7 @@ app_setup_block: |
 # changelog
 
 changelogs:
+  - { date: "08.01.20:", desc: "Switch to python3." }
   - { date: "05.01.20:", desc: "Add dev tag for prereleases." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
   - { date: "11.02.19:", desc: "Add pipeline logic and multi arch." }
