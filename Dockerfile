@@ -19,7 +19,7 @@ RUN \
 	unzip && \
  apt-get install --no-install-recommends -y \
 	openjdk-11-jre-headless \
-	python && \
+	python3 && \
  echo "**** install hydra2 ****" && \
  if [ -z ${HYDRA2_RELEASE+x} ]; then \
 	HYDRA2_RELEASE=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases" \
@@ -46,4 +46,4 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 5076
-VOLUME /config /downloads
+VOLUME /config
