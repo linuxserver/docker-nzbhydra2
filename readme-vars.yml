@@ -18,7 +18,10 @@ available_architectures:
   - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
 
 # development version
-development_versions: false
+development_versions: true
+development_versions_items:
+  - { tag: "latest", desc: "Stable releases" }
+  - { tag: "dev", desc: "Prereleases from their GitHub" }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -53,6 +56,7 @@ app_setup_block: |
 # changelog
 
 changelogs:
+  - { date: "05.01.20:", desc: "Add dev tag for prereleases." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
   - { date: "11.02.19:", desc: "Add pipeline logic and multi arch." }
   - { date: "18.08.18:", desc: "Bump java version to 10, (bionic currently refers to it as version 11)." }
