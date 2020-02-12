@@ -22,13 +22,13 @@ If you are new to Docker or this application our issue tracker is **ONLY** used 
 4.
 
 ## Environment
-**OS:**      
-**CPU architecture:** x86_64/arm32/arm64      
-**How docker service was installed:**      
+**OS:**
+**CPU architecture:** x86_64/arm32/arm64
+**How docker service was installed:**
 <!--- Providing context helps us come up with a solution that is most useful in the real world -->
 
 ## Command used to create docker container (run/create/compose/screenshot)
 <!--- Provide your docker create/run command or compose yaml snippet, or a screenshot of settings if using a gui to create the container -->
 
 ## Docker logs
-<!--- Provide a full docker log, output of "docker logs hydra2" -->
+<!--- Provide a full docker log, output of "docker logs nzbhydra2" -->

@@ -23,31 +23,31 @@ Find us at:
 * [GitHub](https://github.com/linuxserver) - view the source for all of our repositories.
 * [Open Collective](https://opencollective.com/linuxserver) - please consider helping us by either donating or contributing to our budget
 
-# [linuxserver/hydra2](https://github.com/linuxserver/docker-hydra2)
+# [linuxserver/nzbhydra2](https://github.com/linuxserver/docker-nzbhydra2)
 
-[![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-hydra2.svg?style=flat-square&color=E68523&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-hydra2)
-[![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-hydra2.svg?style=flat-square&color=E68523&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-hydra2/releases)
-[![GitHub Package Repository](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitHub%20Package&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-hydra2/packages)
-[![GitLab Container Registry](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitLab%20Registry&logo=gitlab&logoColor=FFFFFF)](https://gitlab.com/Linuxserver.io/docker-hydra2/container_registry)
-[![Quay.io](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Quay.io)](https://quay.io/repository/linuxserver.io/hydra2)
-[![MicroBadger Layers](https://img.shields.io/microbadger/layers/linuxserver/hydra2.svg?style=flat-square&color=E68523)](https://microbadger.com/images/linuxserver/hydra2 "Get your own version badge on microbadger.com")
-[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/hydra2.svg?style=flat-square&color=E68523&label=pulls&logo=docker&logoColor=FFFFFF)](https://hub.docker.com/r/linuxserver/hydra2)
-[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/hydra2.svg?style=flat-square&color=E68523&label=stars&logo=docker&logoColor=FFFFFF)](https://hub.docker.com/r/linuxserver/hydra2)
-[![Build Status](https://ci.linuxserver.io/view/all/job/Docker-Pipeline-Builders/job/docker-hydra2/job/master/badge/icon?style=flat-square)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-hydra2/job/master/)
-[![](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/hydra2/latest/badge.svg)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/hydra2/latest/index.html)
+[![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-nzbhydra2.svg?style=flat-square&color=E68523&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-nzbhydra2)
+[![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-nzbhydra2.svg?style=flat-square&color=E68523&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-nzbhydra2/releases)
+[![GitHub Package Repository](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitHub%20Package&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-nzbhydra2/packages)
+[![GitLab Container Registry](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitLab%20Registry&logo=gitlab&logoColor=FFFFFF)](https://gitlab.com/Linuxserver.io/docker-nzbhydra2/container_registry)
+[![Quay.io](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Quay.io)](https://quay.io/repository/linuxserver.io/nzbhydra2)
+[![MicroBadger Layers](https://img.shields.io/microbadger/layers/linuxserver/nzbhydra2.svg?style=flat-square&color=E68523)](https://microbadger.com/images/linuxserver/nzbhydra2 "Get your own version badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/nzbhydra2.svg?style=flat-square&color=E68523&label=pulls&logo=docker&logoColor=FFFFFF)](https://hub.docker.com/r/linuxserver/nzbhydra2)
+[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/nzbhydra2.svg?style=flat-square&color=E68523&label=stars&logo=docker&logoColor=FFFFFF)](https://hub.docker.com/r/linuxserver/nzbhydra2)
+[![Build Status](https://ci.linuxserver.io/view/all/job/Docker-Pipeline-Builders/job/docker-nzbhydra2/job/master/badge/icon?style=flat-square)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-nzbhydra2/job/master/)
+[![](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/nzbhydra2/latest/badge.svg)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/nzbhydra2/latest/index.html)
 
-[Hydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the "spiritual successor" to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra).
+[Nzbhydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the "spiritual successor" to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra).
 
 It provides easy access to a number of raw and newznab based indexers. The application NZBHydra 2 is currently in its early stages and is in active development. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version.
 
 
-[![hydra2](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png)](https://github.com/theotherp/nzbhydra2)
+[![nzbhydra2](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png)](https://github.com/theotherp/nzbhydra2)
 
 ## Supported Architectures
 
 Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/).
 
-Simply pulling `linuxserver/hydra2` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
+Simply pulling `linuxserver/nzbhydra2` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
 
 The architectures supported by this image are:
 
@@ -74,7 +74,7 @@ Here are some example snippets to help you get started creating a container.
 
 ```
 docker create \
-  --name=hydra2 \
+  --name=nzbhydra2 \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/London \
@@ -82,7 +82,7 @@ docker create \
   -v <path to data>:/config \
   -v <nzb download>:/downloads \
   --restart unless-stopped \
-  linuxserver/hydra2
+  linuxserver/nzbhydra2
 ```
 
 
@@ -94,9 +94,9 @@ Compatible with docker-compose v2 schemas.
 ---
 version: "2"
 services:
-  hydra2:
-    image: linuxserver/hydra2
-    container_name: hydra2
+  nzbhydra2:
+    image: linuxserver/nzbhydra2
+    container_name: nzbhydra2
     environment:
       - PUID=1000
       - PGID=1000
@@ -119,12 +119,12 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
-| `-v /config` | Where hydra2 should store config files. |
+| `-v /config` | Where nzbhydra2 should store config files. |
 | `-v /downloads` | NZB download folder. |
 
 ## Environment variables from files (Docker secrets)
 
-You can set any environment variable from a file by using a special prepend `FILE__`. 
+You can set any environment variable from a file by using a special prepend `FILE__`.
 
 As an example:
 
@@ -157,12 +157,12 @@ The web interface is at `<your ip>:5076` , to set up indexers and connections to
 
 ## Support Info
 
-* Shell access whilst the container is running: `docker exec -it hydra2 /bin/bash`
-* To monitor the logs of the container in realtime: `docker logs -f hydra2`
+* Shell access whilst the container is running: `docker exec -it nzbhydra2 /bin/bash`
+* To monitor the logs of the container in realtime: `docker logs -f nzbhydra2`
 * container version number
-  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' hydra2`
+  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' nzbhydra2`
 * image version number
-  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/hydra2`
+  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/nzbhydra2`
 
 ## Updating Info
 
@@ -171,18 +171,18 @@ Most of our images are static, versioned, and require an image update and contai
 Below are the instructions for updating containers:
 
 ### Via Docker Run/Create
-* Update the image: `docker pull linuxserver/hydra2`
-* Stop the running container: `docker stop hydra2`
-* Delete the container: `docker rm hydra2`
+* Update the image: `docker pull linuxserver/nzbhydra2`
+* Stop the running container: `docker stop nzbhydra2`
+* Delete the container: `docker rm nzbhydra2`
 * Recreate a new container with the same docker create parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
-* Start the new container: `docker start hydra2`
+* Start the new container: `docker start nzbhydra2`
 * You can also remove the old dangling images: `docker image prune`
 
 ### Via Docker Compose
 * Update all images: `docker-compose pull`
-  * or update a single image: `docker-compose pull hydra2`
+  * or update a single image: `docker-compose pull nzbhydra2`
 * Let compose update all containers as necessary: `docker-compose up -d`
-  * or update a single container: `docker-compose up -d hydra2`
+  * or update a single container: `docker-compose up -d nzbhydra2`
 * You can also remove the old dangling images: `docker image prune`
 
 ### Via Watchtower auto-updater (especially useful if you don't remember the original parameters)
@@ -191,7 +191,7 @@ Below are the instructions for updating containers:
   docker run --rm \
   -v /var/run/docker.sock:/var/run/docker.sock \
   containrrr/watchtower \
-  --run-once hydra2
+  --run-once nzbhydra2
   ```
 
 **Note:** We do not endorse the use of Watchtower as a solution to automated updates of existing Docker containers. In fact we generally discourage automated updates. However, this is a useful tool for one-time manual updates of containers where you have forgotten the original parameters. In the long term, we highly recommend using Docker Compose.
@@ -202,12 +202,12 @@ Below are the instructions for updating containers:
 
 If you want to make local modifications to these images for development purposes or just to customize the logic:
 ```
-git clone https://github.com/linuxserver/docker-hydra2.git
-cd docker-hydra2
+git clone https://github.com/linuxserver/docker-nzbhydra2.git
+cd docker-nzbhydra2
 docker build \
   --no-cache \
   --pull \
-  -t linuxserver/hydra2:latest .
+  -t linuxserver/nzbhydra2:latest .
 ```
 
 The ARM variants can be built on x86_64 hardware using `multiarch/qemu-user-static`
