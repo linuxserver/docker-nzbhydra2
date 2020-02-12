@@ -1,7 +1,7 @@
 ---
 
 # jenkins variables
-project_name: docker-hydra2
+project_name: docker-nzbhydra2
 external_type: github_stable
 release_type: stable
 release_tag: latest
@@ -10,13 +10,13 @@ repo_vars:
   - EXT_GIT_BRANCH = 'master'
   - EXT_USER = 'theotherp'
   - EXT_REPO = 'nzbhydra2'
-  - BUILD_VERSION_ARG = 'HYDRA2_RELEASE'
+  - BUILD_VERSION_ARG = 'NZBHYDRA2_RELEASE'
   - LS_USER = 'linuxserver'
-  - LS_REPO = 'docker-hydra2'
-  - CONTAINER_NAME = 'hydra2'
-  - DOCKERHUB_IMAGE = 'linuxserver/hydra2'
-  - DEV_DOCKERHUB_IMAGE = 'lsiodev/hydra2'
-  - PR_DOCKERHUB_IMAGE = 'lspipepr/hydra2'
+  - LS_REPO = 'docker-nzbhydra2'
+  - CONTAINER_NAME = 'nzbhydra2'
+  - DOCKERHUB_IMAGE = 'linuxserver/nzbhydra2'
+  - DEV_DOCKERHUB_IMAGE = 'lsiodev/nzbhydra2'
+  - PR_DOCKERHUB_IMAGE = 'lspipepr/nzbhydra2'
   - DIST_IMAGE = 'ubuntu'
   - MULTIARCH='true'
   - CI='true'

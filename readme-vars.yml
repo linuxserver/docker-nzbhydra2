@@ -1,13 +1,13 @@
 ---
 
 # project information
-project_name: hydra2
+project_name: nzbhydra2
 project_url: "https://github.com/theotherp/nzbhydra2"
 project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png"
 project_blurb: |
   [{{ project_name|capitalize }}]({{ project_url }}) is a meta search application for NZB indexers, the "spiritual successor" to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra).
 
-  It provides easy access to a number of raw and newznab based indexers. The application NZBHydra 2 is replacing NZBHydra 1 and supports migrating from V1. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version. **NOTE:** The last version that supports migration is `linuxserver/hydra2:v2.10.2-ls49`
+  It provides easy access to a number of raw and newznab based indexers. The application NZBHydra 2 is replacing NZBHydra 1 and supports migrating from V1. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version. **NOTE:** The last version that supports migration is `linuxserver/nzbhydra2:v2.10.2-ls49`
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false
 
@@ -32,7 +32,7 @@ param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "<path to data>", desc: "Where hydra2 should store config files." }
+  - { vol_path: "/config", vol_host_path: "<path to data>", desc: "Where nzbhydra2 should store config files." }
   - { vol_path: "/downloads", vol_host_path: "<nzb download>", desc: "NZB download folder." }
 param_usage_include_ports: true
 param_ports:
@@ -56,6 +56,7 @@ app_setup_block: |
 # changelog
 
 changelogs:
+  - { date: "12.02.20:", desc: "Correct Name, Hydra2 -> NZBHydra2." }
   - { date: "08.01.20:", desc: "Switch to python3." }
   - { date: "05.01.20:", desc: "Add dev tag for prereleases." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
