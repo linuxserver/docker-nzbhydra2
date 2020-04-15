@@ -33,8 +33,8 @@ libacl12.2.52-3build1
 libapt-inst2.01.6.12
 libapt-pkg5.01.6.12
 libasn1-8-heimdal7.5.0+dfsg-1
-libasound21.1.3-5ubuntu0.4
-libasound2-data1.1.3-5ubuntu0.4
+libasound21.1.3-5ubuntu0.5
+libasound2-data1.1.3-5ubuntu0.5
 libattr11:2.4.47-2build1
 libaudit11:2.8.2-1ubuntu1
 libaudit-common1:2.8.2-1ubuntu1
