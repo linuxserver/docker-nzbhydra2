@@ -5,5 +5,5 @@ mkdir -p /config/logs
 
 
 # permissions
-chmod +x /app/hydra2/nzbhydra2
+chmod +x /app/nzbhydra2/nzbhydra2
 chown -R abc:abc /config

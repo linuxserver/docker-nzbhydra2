@@ -3,7 +3,7 @@ FROM lsiobase/ubuntu:arm32v7-bionic
 # set version label
 ARG BUILD_DATE
 ARG VERSION
-ARG HYDRA2_RELEASE
+ARG NZBHYDRA2_RELEASE
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="aptalca"
 
@@ -20,21 +20,21 @@ RUN \
  apt-get install --no-install-recommends -y \
 	openjdk-11-jre-headless \
 	python3 && \
- echo "**** install hydra2 ****" && \
- if [ -z ${HYDRA2_RELEASE+x} ]; then \
-	HYDRA2_RELEASE=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases" \
+ echo "**** install nzbhydra2 ****" && \
+ if [ -z ${NZBHYDRA2_RELEASE+x} ]; then \
+	NZBHYDRA2_RELEASE=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases" \
 	| jq -r 'first(.[] | select(.prerelease == true)) | .tag_name'); \
  fi && \
- HYDRA2_VER=${HYDRA2_RELEASE#v} && \
+ NZBHYDRA2_VER=${NZBHYDRA2_RELEASE#v} && \
  curl -o \
- /tmp/hydra2.zip -L \
-	"https://github.com/theotherp/nzbhydra2/releases/download/v${HYDRA2_VER}/nzbhydra2-${HYDRA2_VER}-linux.zip" && \
- mkdir -p /app/hydra2 && \
- unzip /tmp/hydra2.zip -d /app/hydra2 && \
+ /tmp/nzbhydra2.zip -L \
+	"https://github.com/theotherp/nzbhydra2/releases/download/v${NZBHYDRA2_VER}/nzbhydra2-${NZBHYDRA2_VER}-linux.zip" && \
+ mkdir -p /app/nzbhydra2 && \
+ unzip /tmp/nzbhydra2.zip -d /app/nzbhydra2 && \
  curl -o \
- /app/hydra2/nzbhydra2wrapperPy3.py -L \
+ /app/nzbhydra2/nzbhydra2wrapperPy3.py -L \
 	"https://raw.githubusercontent.com/theotherp/nzbhydra2/master/other/wrapper/nzbhydra2wrapperPy3.py" && \
- chmod +x /app/hydra2/nzbhydra2wrapperPy3.py && \
+ chmod +x /app/nzbhydra2/nzbhydra2wrapperPy3.py && \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/* \
