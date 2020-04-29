@@ -5,7 +5,7 @@ ARG BUILD_DATE
 ARG VERSION
 ARG NZBHYDRA2_RELEASE
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="aptalca"
+LABEL maintainer="aptalca,nemchik"
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
