@@ -224,6 +224,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **29.04.20:** - Include stable releases incrementally with dev releases.
 * **14.04.20:** - Correct Name, Hydra2 -> Nzbhydra2.
 * **08.01.20:** - Switch to python3.
 * **05.01.20:** - Add dev tag for prereleases.

@@ -16,8 +16,9 @@ pipeline {
     GITHUB_TOKEN=credentials('498b4638-2d02-4ce5-832d-8a57d01d97ab')
     GITLAB_TOKEN=credentials('b6f0f1dd-6952-4cf6-95d1-9c06380283f0')
     GITLAB_NAMESPACE=credentials('gitlab-namespace-id')
-    JSON_URL = 'https://api.github.com/repos/theotherp/nzbhydra2/releases'
-    JSON_PATH = 'first(.[] | select(.prerelease == true)) | .tag_name'
+    EXT_GIT_BRANCH = 'develop'
+    EXT_USER = 'theotherp'
+    EXT_REPO = 'nzbhydra2'
     BUILD_VERSION_ARG = 'NZBHYDRA2_RELEASE'
     LS_USER = 'linuxserver'
     LS_REPO = 'docker-nzbhydra2'
@@ -57,7 +58,7 @@ pipeline {
           env.CODE_URL = 'https://github.com/' + env.LS_USER + '/' + env.LS_REPO + '/commit/' + env.GIT_COMMIT
           env.DOCKERHUB_LINK = 'https://hub.docker.com/r/' + env.DOCKERHUB_IMAGE + '/tags/'
           env.PULL_REQUEST = env.CHANGE_ID
-          env.TEMPLATED_FILES = 'Jenkinsfile README.md LICENSE ./.github/FUNDING.yml ./.github/ISSUE_TEMPLATE.md ./.github/PULL_REQUEST_TEMPLATE.md'
+          env.TEMPLATED_FILES = 'Jenkinsfile README.md LICENSE ./.github/FUNDING.yml ./.github/ISSUE_TEMPLATE.md ./.github/PULL_REQUEST_TEMPLATE.md ./root/donate.txt'
         }
         script{
           env.LS_RELEASE_NUMBER = sh(
@@ -100,16 +101,23 @@ pipeline {
     /* ########################
        External Release Tagging
        ######################## */
-    // If this is a custom json endpoint parse the return to get external tag
-    stage("Set ENV custom_json"){
-     steps{
-       script{
-         env.EXT_RELEASE = sh(
-           script: '''curl -s ${JSON_URL} | jq -r ". | ${JSON_PATH}" ''',
-           returnStdout: true).trim()
-         env.RELEASE_LINK = env.JSON_URL
-       }
-     }
+    // If this is a devel github release use the first in an array from github to determine the ext tag
+    stage("Set ENV github_devel"){
+      steps{
+        script{
+          env.EXT_RELEASE = sh(
+            script: '''curl -s https://api.github.com/repos/${EXT_USER}/${EXT_REPO}/releases | jq -r '.[0] | .tag_name' ''',
+            returnStdout: true).trim()
+        }
+      }
+    }
+    // If this is a stable or devel github release generate the link for the build message
+    stage("Set ENV github_link"){
+      steps{
+        script{
+          env.RELEASE_LINK = 'https://github.com/' + env.EXT_USER + '/' + env.EXT_REPO + '/releases/tag/' + env.EXT_RELEASE
+        }
+      }
     }
     // Sanitize the release tag and strip illegal docker or github characters
     stage("Sanitize tag"){
@@ -349,7 +357,9 @@ pipeline {
               sh "docker build --no-cache --pull -f Dockerfile.armhf -t ${IMAGE}:arm32v7-${META_TAG} \
                            --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${META_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
               sh "docker tag ${IMAGE}:arm32v7-${META_TAG} lsiodev/buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER}"
-              sh "docker push lsiodev/buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER}"
+              retry(5) {
+                sh "docker push lsiodev/buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER}"
+              }
               sh '''docker rmi \
                     ${IMAGE}:arm32v7-${META_TAG} \
                     lsiodev/buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER} || :'''
@@ -376,7 +386,9 @@ pipeline {
               sh "docker build --no-cache --pull -f Dockerfile.aarch64 -t ${IMAGE}:arm64v8-${META_TAG} \
                            --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${META_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
               sh "docker tag ${IMAGE}:arm64v8-${META_TAG} lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}"
-              sh "docker push lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}"
+              retry(5) {
+                sh "docker push lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}"
+              }
               sh '''docker rmi \
                     ${IMAGE}:arm64v8-${META_TAG} \
                     lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :'''
@@ -541,18 +553,22 @@ pipeline {
             passwordVariable: 'QUAYPASS'
           ]
         ]) {
+          retry(5) {
+            sh '''#! /bin/bash
+                  set -e
+                  echo $QUAYPASS | docker login quay.io -u $QUAYUSER --password-stdin
+                  echo $DOCKERPASS | docker login -u $DOCKERUSER --password-stdin
+                  echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u LinuxServer-CI --password-stdin
+                  echo $GITLAB_TOKEN | docker login registry.gitlab.com -u LinuxServer.io --password-stdin
+                  for PUSHIMAGE in "${QUAYIMAGE}" "${GITHUBIMAGE}" "${GITLABIMAGE}" "${IMAGE}"; do
+                    docker tag ${IMAGE}:${META_TAG} ${PUSHIMAGE}:${META_TAG}
+                    docker tag ${PUSHIMAGE}:${META_TAG} ${PUSHIMAGE}:dev
+                    docker push ${PUSHIMAGE}:dev
+                    docker push ${PUSHIMAGE}:${META_TAG}
+                  done
+               '''
+          }
           sh '''#! /bin/bash
-                set -e
-                echo $QUAYPASS | docker login quay.io -u $QUAYUSER --password-stdin
-                echo $DOCKERPASS | docker login -u $DOCKERUSER --password-stdin
-                echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u LinuxServer-CI --password-stdin
-                echo $GITLAB_TOKEN | docker login registry.gitlab.com -u LinuxServer.io --password-stdin
-                for PUSHIMAGE in "${QUAYIMAGE}" "${GITHUBIMAGE}" "${GITLABIMAGE}" "${IMAGE}"; do
-                  docker tag ${IMAGE}:${META_TAG} ${PUSHIMAGE}:${META_TAG}
-                  docker tag ${PUSHIMAGE}:${META_TAG} ${PUSHIMAGE}:dev
-                  docker push ${PUSHIMAGE}:dev
-                  docker push ${PUSHIMAGE}:${META_TAG}
-                done
                 for DELETEIMAGE in "${QUAYIMAGE}" "${GITHUBIMAGE}" "{GITLABIMAGE}" "${IMAGE}"; do
                   docker rmi \
                   ${DELETEIMAGE}:${META_TAG} \
@@ -583,59 +599,61 @@ pipeline {
             passwordVariable: 'QUAYPASS'
           ]
         ]) {
-          sh '''#! /bin/bash
-                set -e
-                echo $QUAYPASS | docker login quay.io -u $QUAYUSER --password-stdin
-                echo $DOCKERPASS | docker login -u $DOCKERUSER --password-stdin
-                echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u LinuxServer-CI --password-stdin
-                echo $GITLAB_TOKEN | docker login registry.gitlab.com -u LinuxServer.io --password-stdin
-                if [ "${CI}" == "false" ]; then
-                  docker pull lsiodev/buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER}
-                  docker pull lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
-                  docker tag lsiodev/buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm32v7-${META_TAG}
-                  docker tag lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm64v8-${META_TAG}
-                fi
-                for MANIFESTIMAGE in "${IMAGE}" "${GITLABIMAGE}"; do
-                  docker tag ${IMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:amd64-${META_TAG}
-                  docker tag ${IMAGE}:arm32v7-${META_TAG} ${MANIFESTIMAGE}:arm32v7-${META_TAG}
-                  docker tag ${IMAGE}:arm64v8-${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG}
-                  docker tag ${MANIFESTIMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:amd64-dev
-                  docker tag ${MANIFESTIMAGE}:arm32v7-${META_TAG} ${MANIFESTIMAGE}:arm32v7-dev
-                  docker tag ${MANIFESTIMAGE}:arm64v8-${META_TAG} ${MANIFESTIMAGE}:arm64v8-dev
-                  docker push ${MANIFESTIMAGE}:amd64-${META_TAG}
-                  docker push ${MANIFESTIMAGE}:arm32v7-${META_TAG}
-                  docker push ${MANIFESTIMAGE}:arm64v8-${META_TAG}
-                  docker push ${MANIFESTIMAGE}:amd64-dev
-                  docker push ${MANIFESTIMAGE}:arm32v7-dev
-                  docker push ${MANIFESTIMAGE}:arm64v8-dev
-                  docker manifest push --purge ${MANIFESTIMAGE}:dev || :
-                  docker manifest create ${MANIFESTIMAGE}:dev ${MANIFESTIMAGE}:amd64-dev ${MANIFESTIMAGE}:arm32v7-dev ${MANIFESTIMAGE}:arm64v8-dev
-                  docker manifest annotate ${MANIFESTIMAGE}:dev ${MANIFESTIMAGE}:arm32v7-dev --os linux --arch arm
-                  docker manifest annotate ${MANIFESTIMAGE}:dev ${MANIFESTIMAGE}:arm64v8-dev --os linux --arch arm64 --variant v8
-                  docker manifest push --purge ${MANIFESTIMAGE}:${META_TAG} || :
-                  docker manifest create ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:arm32v7-${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG}
-                  docker manifest annotate ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:arm32v7-${META_TAG} --os linux --arch arm
-                  docker manifest annotate ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG} --os linux --arch arm64 --variant v8
-                  docker manifest push --purge ${MANIFESTIMAGE}:dev
-                  docker manifest push --purge ${MANIFESTIMAGE}:${META_TAG} 
-                done
-                for LEGACYIMAGE in "${GITHUBIMAGE}" "${QUAYIMAGE}"; do
-                  docker tag ${IMAGE}:amd64-${META_TAG} ${LEGACYIMAGE}:amd64-${META_TAG}
-                  docker tag ${IMAGE}:arm32v7-${META_TAG} ${LEGACYIMAGE}:arm32v7-${META_TAG}
-                  docker tag ${IMAGE}:arm64v8-${META_TAG} ${LEGACYIMAGE}:arm64v8-${META_TAG}
-                  docker tag ${LEGACYIMAGE}:amd64-${META_TAG} ${LEGACYIMAGE}:dev
-                  docker tag ${LEGACYIMAGE}:amd64-${META_TAG} ${LEGACYIMAGE}:${META_TAG}
-                  docker tag ${LEGACYIMAGE}:arm32v7-${META_TAG} ${LEGACYIMAGE}:arm32v7-dev
-                  docker tag ${LEGACYIMAGE}:arm64v8-${META_TAG} ${LEGACYIMAGE}:arm64v8-dev
-                  docker push ${LEGACYIMAGE}:amd64-${META_TAG}
-                  docker push ${LEGACYIMAGE}:arm32v7-${META_TAG}
-                  docker push ${LEGACYIMAGE}:arm64v8-${META_TAG}
-                  docker push ${LEGACYIMAGE}:dev
-                  docker push ${LEGACYIMAGE}:${META_TAG}
-                  docker push ${LEGACYIMAGE}:arm32v7-dev
-                  docker push ${LEGACYIMAGE}:arm64v8-dev
-                done
-             '''
+          retry(5) {
+            sh '''#! /bin/bash
+                  set -e
+                  echo $QUAYPASS | docker login quay.io -u $QUAYUSER --password-stdin
+                  echo $DOCKERPASS | docker login -u $DOCKERUSER --password-stdin
+                  echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u LinuxServer-CI --password-stdin
+                  echo $GITLAB_TOKEN | docker login registry.gitlab.com -u LinuxServer.io --password-stdin
+                  if [ "${CI}" == "false" ]; then
+                    docker pull lsiodev/buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER}
+                    docker pull lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
+                    docker tag lsiodev/buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm32v7-${META_TAG}
+                    docker tag lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm64v8-${META_TAG}
+                  fi
+                  for MANIFESTIMAGE in "${IMAGE}" "${GITLABIMAGE}"; do
+                    docker tag ${IMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:amd64-${META_TAG}
+                    docker tag ${IMAGE}:arm32v7-${META_TAG} ${MANIFESTIMAGE}:arm32v7-${META_TAG}
+                    docker tag ${IMAGE}:arm64v8-${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG}
+                    docker tag ${MANIFESTIMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:amd64-dev
+                    docker tag ${MANIFESTIMAGE}:arm32v7-${META_TAG} ${MANIFESTIMAGE}:arm32v7-dev
+                    docker tag ${MANIFESTIMAGE}:arm64v8-${META_TAG} ${MANIFESTIMAGE}:arm64v8-dev
+                    docker push ${MANIFESTIMAGE}:amd64-${META_TAG}
+                    docker push ${MANIFESTIMAGE}:arm32v7-${META_TAG}
+                    docker push ${MANIFESTIMAGE}:arm64v8-${META_TAG}
+                    docker push ${MANIFESTIMAGE}:amd64-dev
+                    docker push ${MANIFESTIMAGE}:arm32v7-dev
+                    docker push ${MANIFESTIMAGE}:arm64v8-dev
+                    docker manifest push --purge ${MANIFESTIMAGE}:dev || :
+                    docker manifest create ${MANIFESTIMAGE}:dev ${MANIFESTIMAGE}:amd64-dev ${MANIFESTIMAGE}:arm32v7-dev ${MANIFESTIMAGE}:arm64v8-dev
+                    docker manifest annotate ${MANIFESTIMAGE}:dev ${MANIFESTIMAGE}:arm32v7-dev --os linux --arch arm
+                    docker manifest annotate ${MANIFESTIMAGE}:dev ${MANIFESTIMAGE}:arm64v8-dev --os linux --arch arm64 --variant v8
+                    docker manifest push --purge ${MANIFESTIMAGE}:${META_TAG} || :
+                    docker manifest create ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:arm32v7-${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG}
+                    docker manifest annotate ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:arm32v7-${META_TAG} --os linux --arch arm
+                    docker manifest annotate ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG} --os linux --arch arm64 --variant v8
+                    docker manifest push --purge ${MANIFESTIMAGE}:dev
+                    docker manifest push --purge ${MANIFESTIMAGE}:${META_TAG} 
+                  done
+                  for LEGACYIMAGE in "${GITHUBIMAGE}" "${QUAYIMAGE}"; do
+                    docker tag ${IMAGE}:amd64-${META_TAG} ${LEGACYIMAGE}:amd64-${META_TAG}
+                    docker tag ${IMAGE}:arm32v7-${META_TAG} ${LEGACYIMAGE}:arm32v7-${META_TAG}
+                    docker tag ${IMAGE}:arm64v8-${META_TAG} ${LEGACYIMAGE}:arm64v8-${META_TAG}
+                    docker tag ${LEGACYIMAGE}:amd64-${META_TAG} ${LEGACYIMAGE}:dev
+                    docker tag ${LEGACYIMAGE}:amd64-${META_TAG} ${LEGACYIMAGE}:${META_TAG}
+                    docker tag ${LEGACYIMAGE}:arm32v7-${META_TAG} ${LEGACYIMAGE}:arm32v7-dev
+                    docker tag ${LEGACYIMAGE}:arm64v8-${META_TAG} ${LEGACYIMAGE}:arm64v8-dev
+                    docker push ${LEGACYIMAGE}:amd64-${META_TAG}
+                    docker push ${LEGACYIMAGE}:arm32v7-${META_TAG}
+                    docker push ${LEGACYIMAGE}:arm64v8-${META_TAG}
+                    docker push ${LEGACYIMAGE}:dev
+                    docker push ${LEGACYIMAGE}:${META_TAG}
+                    docker push ${LEGACYIMAGE}:arm32v7-dev
+                    docker push ${LEGACYIMAGE}:arm64v8-dev
+                  done
+               '''
+          }
           sh '''#! /bin/bash
                 for DELETEIMAGE in "${QUAYIMAGE}" "${GITHUBIMAGE}" "${GITLABIMAGE}" "${IMAGE}"; do
                   docker rmi \
@@ -673,11 +691,11 @@ pipeline {
              "tagger": {"name": "LinuxServer Jenkins","email": "jenkins@linuxserver.io","date": "'${GITHUB_DATE}'"}}' '''
         echo "Pushing New release for Tag"
         sh '''#! /bin/bash
-              echo "Data change at JSON endpoint ${JSON_URL}" > releasebody.json
+              curl -s https://api.github.com/repos/${EXT_USER}/${EXT_REPO}/releases | jq '.[0] |.body' | sed 's:^.\\(.*\\).$:\\1:' > releasebody.json
               echo '{"tag_name":"'${EXT_RELEASE_CLEAN}'-ls'${LS_TAG_NUMBER}'",\
                      "target_commitish": "dev",\
                      "name": "'${EXT_RELEASE_CLEAN}'-ls'${LS_TAG_NUMBER}'",\
-                     "body": "**LinuxServer Changes:**\\n\\n'${LS_RELEASE_NOTES}'\\n**Remote Changes:**\\n\\n' > start
+                     "body": "**LinuxServer Changes:**\\n\\n'${LS_RELEASE_NOTES}'\\n**'${EXT_REPO}' Changes:**\\n\\n' > start
               printf '","draft": false,"prerelease": true}' >> releasebody.json
               paste -d'\\0' start releasebody.json > releasebody.json.done
               curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST https://api.github.com/repos/${LS_USER}/${LS_REPO}/releases -d @releasebody.json.done'''
