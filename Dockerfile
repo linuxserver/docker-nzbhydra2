@@ -33,7 +33,7 @@ RUN \
  mkdir -p /app/nzbhydra2/bin && \
  unzip /tmp/nzbhydra2.zip -d /app/nzbhydra2/bin && \
  chmod +x /app/nzbhydra2/bin/nzbhydra2wrapperPy3.py && \
- echo "UpdateMethod=docker\nReleaseType=${NZBHYDRA2_RELEASE_TYPE}\nPackageVersion=${VERSION}\nPackageAuthor=linuxserver.io" > /app/nzbhydra2/package_info && \
+ echo "ReleaseType=${NZBHYDRA2_RELEASE_TYPE}\nPackageVersion=${VERSION}\nPackageAuthor=linuxserver.io" > /app/nzbhydra2/package_info && \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/* \
