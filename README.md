@@ -224,6 +224,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **01.05.20:** - Reorganize container, Relocate app to /app/nzbhydra2/bin, Create /app/nzbhydra2/package_info, Use nzbhydra2wrapperPy3.py from zip.
 * **14.04.20:** - Correct Name, Hydra2 -> NZBHydra2.
 * **08.01.20:** - Switch to python3.
 * **05.01.20:** - Add dev tag for prereleases.

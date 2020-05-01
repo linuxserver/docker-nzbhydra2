@@ -9,6 +9,7 @@ LABEL maintainer="nemchik"
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
+ENV NZBHYDRA2_RELEASE_TYPE="Release"
 
 RUN \
  echo "**** install packages ****" && \
@@ -29,12 +30,10 @@ RUN \
  curl -o \
  /tmp/nzbhydra2.zip -L \
 	"https://github.com/theotherp/nzbhydra2/releases/download/v${NZBHYDRA2_VER}/nzbhydra2-${NZBHYDRA2_VER}-linux.zip" && \
- mkdir -p /app/nzbhydra2 && \
- unzip /tmp/nzbhydra2.zip -d /app/nzbhydra2 && \
- curl -o \
- /app/nzbhydra2/nzbhydra2wrapperPy3.py -L \
-	"https://raw.githubusercontent.com/theotherp/nzbhydra2/master/other/wrapper/nzbhydra2wrapperPy3.py" && \
- chmod +x /app/nzbhydra2/nzbhydra2wrapperPy3.py && \
+ mkdir -p /app/nzbhydra2/bin && \
+ unzip /tmp/nzbhydra2.zip -d /app/nzbhydra2/bin && \
+ chmod +x /app/nzbhydra2/bin/nzbhydra2wrapperPy3.py && \
+ echo "ReleaseType=${NZBHYDRA2_RELEASE_TYPE}\nPackageVersion=${VERSION}\nPackageAuthor=linuxserver.io" > /app/nzbhydra2/package_info && \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/* \
