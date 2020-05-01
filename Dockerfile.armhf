@@ -23,7 +23,7 @@ RUN \
  echo "**** install nzbhydra2 ****" && \
  if [ -z ${NZBHYDRA2_RELEASE+x} ]; then \
 	NZBHYDRA2_RELEASE=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases" \
-	| jq -r 'first(.[] | select(.prerelease == true)) | .tag_name'); \
+	| jq -r '.[0] | .tag_name'); \
  fi && \
  NZBHYDRA2_VER=${NZBHYDRA2_RELEASE#v} && \
  curl -o \
