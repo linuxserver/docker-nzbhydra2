@@ -56,6 +56,7 @@ app_setup_block: |
 # changelog
 
 changelogs:
+  - { date: "01.06.20:", desc: "Rebasing to alpine 3.12." }
   - { date: "01.05.20:", desc: "Reorganize container, Relocate app to /app/nzbhydra2/bin, Create /app/nzbhydra2/package_info, Use nzbhydra2wrapperPy3.py from zip." }
   - { date: "29.04.20:", desc: "Include stable releases incrementally with dev releases." }
   - { date: "14.04.20:", desc: "Correct Name, Hydra2 -> Nzbhydra2." }
