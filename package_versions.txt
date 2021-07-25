@@ -9,7 +9,7 @@ bzip21.0.6-8.1ubuntu0.2
 ca-certificates20210119~18.04.1
 ca-certificates-java20180516ubuntu1~18.04.1
 coreutils8.28-1ubuntu1
-curl7.58.0-2ubuntu3.13
+curl7.58.0-2ubuntu3.14
 dash0.5.8-2.10
 debconf1.5.66ubuntu1
 debianutils4.8.4
@@ -23,7 +23,7 @@ fonts-dejavu-core2.37-1
 gcc-8-base8.4.0-1ubuntu1~18.04
 gpgv2.2.4-1ubuntu1.4
 grep3.1-2build1
-gzip1.6-5ubuntu1
+gzip1.6-5ubuntu1.1
 hostname3.20
 init-system-helpers1.51
 java-common0.68ubuntu1~18.04.1
@@ -33,8 +33,8 @@ libacl12.2.52-3build1
 libapt-inst2.01.6.14
 libapt-pkg5.01.6.14
 libasn1-8-heimdal7.5.0+dfsg-1
-libasound21.1.3-5ubuntu0.5
-libasound2-data1.1.3-5ubuntu0.5
+libasound21.1.3-5ubuntu0.6
+libasound2-data1.1.3-5ubuntu0.6
 libattr11:2.4.47-2build1
 libaudit11:2.8.2-1ubuntu1.1
 libaudit-common1:2.8.2-1ubuntu1.1
@@ -48,7 +48,7 @@ libcap-ng00.7.7-3.1
 libc-bin2.27-3ubuntu1.4
 libcom-err21.44.1-1ubuntu1.3
 libcups22.2.7-1ubuntu2.8
-libcurl47.58.0-2ubuntu3.13
+libcurl47.58.0-2ubuntu3.14
 libdb5.35.3.28-13.1ubuntu1.1
 libdbus-1-31.12.2-1ubuntu1.2
 libdebconfclient00.213ubuntu1
