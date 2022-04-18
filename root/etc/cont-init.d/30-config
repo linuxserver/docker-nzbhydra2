@@ -3,7 +3,6 @@
 # make our folders
 mkdir -p /config/logs
 
-
 # permissions
 chmod +x /app/nzbhydra2/bin/nzbhydra2
 chown -R abc:abc /config
