@@ -6,5 +6,5 @@ unset HOST_OS
 cd /app/nzbhydra2/bin || exit
 
 exec \
-	s6-setuidgid abc /usr/bin/python3 nzbhydra2wrapperPy3.py \
-	--nobrowser --datafolder /config
+    s6-setuidgid abc /usr/bin/python3 nzbhydra2wrapperPy3.py \
+    --nobrowser --datafolder /config
