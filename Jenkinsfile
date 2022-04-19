@@ -27,7 +27,7 @@ pipeline {
     DOCKERHUB_IMAGE = 'linuxserver/nzbhydra2'
     DEV_DOCKERHUB_IMAGE = 'lsiodev/nzbhydra2'
     PR_DOCKERHUB_IMAGE = 'lspipepr/nzbhydra2'
-    DIST_IMAGE = 'ubuntu'
+    DIST_IMAGE = 'alpine'
     MULTIARCH='true'
     CI='true'
     CI_WEB='true'
