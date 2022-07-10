@@ -99,7 +99,7 @@ libnghttp2-141.43.0-1build3
 libnpth01.6-3build2
 libnsl21.3.0-2build2
 libnspr42:4.32-3build1
-libnss32:3.68.2-0ubuntu1
+libnss32:3.68.2-0ubuntu1.1
 libonig56.9.7.1-2build1
 libp11-kit00.24.0-6build1
 libpam0g1.4.0-11ubuntu2
