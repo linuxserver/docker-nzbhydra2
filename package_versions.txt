@@ -65,7 +65,7 @@ libexpat12.4.7-1
 libext2fs21.46.5-2ubuntu1.1
 libffi83.4.2-4
 libfontconfig12.13.1-4.2ubuntu5
-libfreetype62.11.1+dfsg-1build1
+libfreetype62.11.1+dfsg-1ubuntu0.1
 libgcc-s112-20220319-1ubuntu1
 libgcrypt201.9.4-3ubuntu3
 libglib2.0-02.72.1-1
@@ -74,7 +74,7 @@ libgnutls303.7.3-4ubuntu1
 libgpg-error01.43-3
 libgraphite2-31.3.14-1build2
 libgssapi-krb5-21.19.2-2
-libharfbuzz0b2.7.4-1ubuntu3
+libharfbuzz0b2.7.4-1ubuntu3.1
 libhogweed63.7.3-1build2
 libidn2-02.3.2-2build1
 libjpeg88c-2ubuntu10
