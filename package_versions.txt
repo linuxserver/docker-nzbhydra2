@@ -1,6 +1,6 @@
 adduser3.118ubuntu5
-apt2.4.6
-apt-utils2.4.6
+apt2.4.7
+apt-utils2.4.7
 base-files12ubuntu4.2
 base-passwd3.5.52build1
 bash5.1-6ubuntu1
@@ -37,7 +37,7 @@ init-system-helpers1.62
 java-common0.72build2
 jq1.6-2.1ubuntu3
 libacl12.3.1-1
-libapt-pkg6.02.4.6
+libapt-pkg6.02.4.7
 libasound21.2.6.1-1ubuntu1
 libasound2-data1.2.6.1-1ubuntu1
 libassuan02.5.5-1build1
