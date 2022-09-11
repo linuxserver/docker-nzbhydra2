@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy-cd65f39a-ls39
+FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
 
 # set version label
 ARG BUILD_DATE
@@ -18,6 +18,7 @@ RUN \
     curl \
     jq \
     openjdk-11-jre-headless \
+    netcat \
     python3 \
     unzip && \
   echo "**** install nzbhydra2 ****" && \
