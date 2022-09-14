@@ -235,6 +235,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **11.09.22:** - Migrate to s6v3.
 * **03.05.22:** - Rebase to Jammy.
 * **18.04.22:** - Rebase to Alpine 3.15.
 * **01.05.20:** - Reorganize container, Relocate app to /app/nzbhydra2/bin, Create /app/nzbhydra2/package_info, Use nzbhydra2wrapperPy3.py from zip.
