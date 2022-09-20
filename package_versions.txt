@@ -19,7 +19,7 @@ e2fsprogs1.46.5-2ubuntu1.1
 findutils4.8.0-1ubuntu3
 fontconfig-config2.13.1-4.2ubuntu5
 fonts-dejavu-core2.37-2build1
-gcc-12-base12-20220319-1ubuntu1
+gcc-12-base12.1.0-2ubuntu1~22.04
 gnupg2.2.27-3ubuntu2.1
 gnupg-l10n2.2.27-3ubuntu2.1
 gnupg-utils2.2.27-3ubuntu2.1
@@ -67,7 +67,7 @@ libext2fs21.46.5-2ubuntu1.1
 libffi83.4.2-4
 libfontconfig12.13.1-4.2ubuntu5
 libfreetype62.11.1+dfsg-1ubuntu0.1
-libgcc-s112-20220319-1ubuntu1
+libgcc-s112.1.0-2ubuntu1~22.04
 libgcrypt201.9.4-3ubuntu3
 libglib2.0-02.72.1-1
 libgmp102:6.2.1+dfsg-3ubuntu1
@@ -132,7 +132,7 @@ libsqlite3-03.37.2-2
 libss21.46.5-2ubuntu1.1
 libssh-40.9.6-2build1
 libssl33.0.2-0ubuntu1.6
-libstdc++612-20220319-1ubuntu1
+libstdc++612.1.0-2ubuntu1~22.04
 libsystemd0249.11-0ubuntu3.4
 libtasn1-64.18.0-4build1
 libtinfo66.3-2
