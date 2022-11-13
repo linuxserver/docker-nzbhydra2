@@ -128,10 +128,10 @@ libsemanage23.3-1build2
 libsemanage-common3.3-1build2
 libsepol23.3-1build1
 libsmartcols12.37.2-4ubuntu3
-libsqlite3-03.37.2-2
+libsqlite3-03.37.2-2ubuntu0.1
 libss21.46.5-2ubuntu1.1
 libssh-40.9.6-2build1
-libssl33.0.2-0ubuntu1.6
+libssl33.0.2-0ubuntu1.7
 libstdc++612.1.0-2ubuntu1~22.04
 libsystemd0249.11-0ubuntu3.6
 libtasn1-64.18.0-4build1
@@ -154,7 +154,7 @@ ncurses-base6.3-2
 ncurses-bin6.3-2
 netcat1.218-4ubuntu1
 netcat-openbsd1.218-4ubuntu1
-openjdk-11-jre-headless11.0.16+8-0ubuntu1~22.04
+openjdk-11-jre-headless11.0.17+8-1ubuntu2~22.04
 openssl3.0.2-0ubuntu1.7
 passwd1:4.8.1-2ubuntu2
 perl-base5.34.0-3ubuntu1.1
@@ -170,7 +170,7 @@ sed4.8-1ubuntu2
 sensible-utils0.0.17
 sysvinit-utils3.01-1ubuntu1
 tar1.34+dfsg-1build3
-tzdata2022e-0ubuntu0.22.04.0
+tzdata2022f-0ubuntu0.22.04.0
 ubuntu-keyring2021.03.26
 ucf3.0043
 unzip6.0-26ubuntu3.1
