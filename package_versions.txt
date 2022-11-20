@@ -62,7 +62,7 @@ libcurl47.81.0-1ubuntu1.6
 libdb5.35.3.28+dfsg1-0.8ubuntu3
 libdbus-1-31.12.20-2ubuntu4.1
 libdebconfclient00.261ubuntu1
-libexpat12.4.7-1
+libexpat12.4.7-1ubuntu0.1
 libext2fs21.46.5-2ubuntu1.1
 libffi83.4.2-4
 libfontconfig12.13.1-4.2ubuntu5
