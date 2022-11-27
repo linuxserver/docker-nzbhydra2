@@ -62,7 +62,7 @@ libcurl47.81.0-1ubuntu1.6
 libdb5.35.3.28+dfsg1-0.8ubuntu3
 libdbus-1-31.12.20-2ubuntu4.1
 libdebconfclient00.261ubuntu1
-libexpat12.4.7-1ubuntu0.1
+libexpat12.4.7-1ubuntu0.2
 libext2fs21.46.5-2ubuntu1.1
 libffi83.4.2-4
 libfontconfig12.13.1-4.2ubuntu5
@@ -170,7 +170,7 @@ sed4.8-1ubuntu2
 sensible-utils0.0.17
 sysvinit-utils3.01-1ubuntu1
 tar1.34+dfsg-1build3
-tzdata2022f-0ubuntu0.22.04.0
+tzdata2022f-0ubuntu0.22.04.1
 ubuntu-keyring2021.03.26
 ucf3.0043
 unzip6.0-26ubuntu3.1
