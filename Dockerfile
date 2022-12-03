@@ -17,7 +17,7 @@ RUN \
   apk add -U --no-cache \
     curl \
     jq \
-    openjdk11-jre-headless \
+    openjdk17-jre-headless \
     python3 && \
   echo "**** install nzbhydra2 ****" && \
   if [ -z ${NZBHYDRA2_RELEASE+x} ]; then \
