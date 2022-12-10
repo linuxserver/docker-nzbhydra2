@@ -8,5 +8,4 @@ if [[ ! -f /config/nzbhydra.yml ]]; then
 fi
 
 # permissions
-chmod +x /app/nzbhydra2/bin/nzbhydra2
 lsiown -R abc:abc /config
