@@ -3,6 +3,10 @@
 # make our folders
 mkdir -p /config/logs
 
+if [[ ! -f /config/nzbhydra.yml ]]; then
+    cp /defaults/nzbhydra.yml /config/nzbhydra.yml
+fi
+
 # permissions
 chmod +x /app/nzbhydra2/bin/nzbhydra2
-chown -R abc:abc /config
+lsiown -R abc:abc /config
