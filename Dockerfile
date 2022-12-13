@@ -22,8 +22,8 @@ RUN \
     unzip && \
   echo "**** install nzbhydra2 ****" && \
   if [ -z ${NZBHYDRA2_RELEASE+x} ]; then \
-    NZBHYDRA2_RELEASE=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases/latest" \
-      | jq -r .tag_name); \
+    NZBHYDRA2_RELEASE=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases" \
+      | jq -r '.[0] | .tag_name'); \
   fi && \
   NZBHYDRA2_VER=${NZBHYDRA2_RELEASE#v} && \
   curl -o \
@@ -44,7 +44,8 @@ RUN \
     /tmp/* \
     /var/lib/apt/lists/* \
     /var/tmp/* \
-    /var/log/*
+    /var/log/* \
+    /app/nzbhydra2/bin/{upstart,rc.d,sysv,systemd}
 
 # copy local files
 COPY root/ /
