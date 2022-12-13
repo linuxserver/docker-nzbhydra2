@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+# unset unraid specific ENV to avoid crashing
+unset HOST_OS
+
+exec \
+    s6-notifyoncheck -d -n 300 -w 1000 -c "nc -z localhost 5076" \
+    cd /app/nzbhydra2/bin s6-setuidgid abc /usr/bin/python3 nzbhydra2wrapperPy3.py --nobrowser --datafolder /config
