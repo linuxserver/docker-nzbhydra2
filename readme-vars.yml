@@ -56,7 +56,7 @@ app_setup_block: |
 # changelog
 
 changelogs:
-  - { date: "03.23.22:", desc: "Upgrade JRE to 17." }
+  - { date: "03.23.22:", desc: "Upgrade JRE to 17, rebase to ubuntu." }
   - { date: "18.04.22:", desc: "Rebase to Alpine 3.15." }
   - { date: "01.05.20:", desc: "Reorganize container, Relocate app to /app/nzbhydra2/bin, Create /app/nzbhydra2/package_info, Use nzbhydra2wrapperPy3.py from zip." }
   - { date: "29.04.20:", desc: "Include stable releases incrementally with dev releases." }

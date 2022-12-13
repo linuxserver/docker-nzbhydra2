@@ -27,7 +27,7 @@ pipeline {
     DOCKERHUB_IMAGE = 'linuxserver/nzbhydra2'
     DEV_DOCKERHUB_IMAGE = 'lsiodev/nzbhydra2'
     PR_DOCKERHUB_IMAGE = 'lspipepr/nzbhydra2'
-    DIST_IMAGE = 'alpine'
+    DIST_IMAGE = 'ubuntu'
     MULTIARCH='true'
     CI='true'
     CI_WEB='true'
@@ -36,7 +36,7 @@ pipeline {
     CI_DELAY='120'
     CI_DOCKERENV='TZ=US/Pacific'
     CI_AUTH='user:password'
-    CI_WEBPATH=''
+    CI_WEBPATH='/system/about'
   }
   stages {
     // Setup all the basic environment variables needed for the build
