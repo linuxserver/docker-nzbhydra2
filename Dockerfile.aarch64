@@ -41,14 +41,11 @@ RUN \
   sed -i 's/mapIpToHost: true/mapIpToHost: false/' /defaults/nzbhydra.yml && \
   echo "**** cleanup ****" && \
   rm -rf \
-    /app/nzbhydra2/bin/upstart \
-    /app/nzbhydra2/bin/rc.d \
-    /app/nzbhydra2/bin/sysv \
-    /app/nzbhydra2/bin/systemd \
     /tmp/* \
     /var/lib/apt/lists/* \
     /var/tmp/* \
-    /var/log/*
+    /var/log/* \
+    /app/nzbhydra2/bin/{upstart,rc.d,sysv,systemd}
 
 # copy local files
 COPY root/ /
