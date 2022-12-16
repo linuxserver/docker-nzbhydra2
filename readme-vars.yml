@@ -32,8 +32,8 @@ param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "<path to data>", desc: "Where nzbhydra2 should store config files." }
-  - { vol_path: "/downloads", vol_host_path: "<nzb download>", desc: "NZB download folder." }
+  - { vol_path: "/config", vol_host_path: "/path/to/data", desc: "Where nzbhydra2 should store config files." }
+  - { vol_path: "/downloads", vol_host_path: "/nzb/download", desc: "NZB download folder." }
 param_usage_include_ports: true
 param_ports:
   - { external_port: "5076", internal_port: "5076", port_desc: "WebUI" }
@@ -56,6 +56,7 @@ app_setup_block: |
 # changelog
 
 changelogs:
+  - { date: "10.12.22:", desc: "Bump master JRE to v17. Default mapIpToHost to false." }
   - { date: "11.09.22:", desc: "Migrate to s6v3." }
   - { date: "03.05.22:", desc: "Rebase to Jammy." }
   - { date: "18.04.22:", desc: "Rebase to Alpine 3.15." }

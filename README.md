@@ -91,8 +91,8 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - <path to data>:/config
-      - <nzb download>:/downloads
+      - /path/to/data:/config
+      - /nzb/download:/downloads
     ports:
       - 5076:5076
     restart: unless-stopped
@@ -107,8 +107,8 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Europe/London \
   -p 5076:5076 \
-  -v <path to data>:/config \
-  -v <nzb download>:/downloads \
+  -v /path/to/data:/config \
+  -v /nzb/download:/downloads \
   --restart unless-stopped \
   lscr.io/linuxserver/nzbhydra2:latest
 ```
@@ -235,6 +235,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **10.12.22:** - Bump master JRE to v17. Default mapIpToHost to false.
 * **11.09.22:** - Migrate to s6v3.
 * **03.05.22:** - Rebase to Jammy.
 * **18.04.22:** - Rebase to Alpine 3.15.
