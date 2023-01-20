@@ -235,7 +235,6 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **20.01.23:** - Update dependencies for v5.
 * **03.23.22:** - Upgrade JRE to 17, rebase to ubuntu.
 * **18.04.22:** - Rebase to Alpine 3.15.
 * **01.05.20:** - Reorganize container, Relocate app to /app/nzbhydra2/bin, Create /app/nzbhydra2/package_info, Use nzbhydra2wrapperPy3.py from zip.
