@@ -6,7 +6,7 @@ base-passwd3.5.52build1
 bash5.1-6ubuntu1
 bsdutils1:2.37.2-4ubuntu3
 ca-certificates20211016ubuntu0.22.04.1
-ca-certificates-java20190909
+ca-certificates-java20190909ubuntu1.1
 coreutils8.32-4.1ubuntu1
 curl7.81.0-1ubuntu1.7
 dash0.5.11+git20210903+057cd650a4ed-3build1
