@@ -17,6 +17,7 @@ RUN \
   echo "**** install packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
+    libfreetype6 \
     openjdk-17-jre-headless \
     python3 \
     unzip && \
@@ -29,10 +30,10 @@ RUN \
   curl -o \
     /tmp/nzbhydra2.zip -L \
     "https://github.com/theotherp/nzbhydra2/releases/download/v${NZBHYDRA2_VER}/nzbhydra2-${NZBHYDRA2_VER}-linux.zip" && \
-  mkdir -p /app/nzbhydra2/bin && \
-  unzip /tmp/nzbhydra2.zip -d /app/nzbhydra2/bin && \
-  chmod +x /app/nzbhydra2/bin/nzbhydra2 && \
-  chmod +x /app/nzbhydra2/bin/nzbhydra2wrapperPy3.py && \
+  mkdir -p /app/nzbhydra2 && \
+  unzip /tmp/nzbhydra2.zip -d /app/nzbhydra2 && \
+  chmod +x /app/nzbhydra2/nzbhydra2wrapperPy3.py && \
+  chmod +x /app/nzbhydra2/core && \
   echo "ReleaseType=${NZBHYDRA2_RELEASE_TYPE}\nPackageVersion=${VERSION}\nPackageAuthor=linuxserver.io" > /app/nzbhydra2/package_info && \
   mkdir -p /defaults && \
   curl -o \
@@ -45,7 +46,10 @@ RUN \
     /var/lib/apt/lists/* \
     /var/tmp/* \
     /var/log/* \
-    /app/nzbhydra2/bin/{upstart,rc.d,sysv,systemd}
+    /app/nzbhydra2/upstart \
+    /app/nzbhydra2/rc.d \
+    /app/nzbhydra2/sysv \
+    /app/nzbhydra2/systemd
 
 # copy local files
 COPY root/ /
