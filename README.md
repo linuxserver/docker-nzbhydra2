@@ -235,6 +235,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **22.01.23:** - Update release URL for arch-specific packages.
 * **20.01.23:** - Update dependencies for v5.
 * **03.23.22:** - Upgrade JRE to 17, rebase to ubuntu.
 * **18.04.22:** - Rebase to Alpine 3.15.
