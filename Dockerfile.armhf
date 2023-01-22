@@ -33,7 +33,7 @@ RUN \
   mkdir -p /app/nzbhydra2 && \
   unzip /tmp/nzbhydra2.zip -d /app/nzbhydra2 && \
   chmod +x /app/nzbhydra2/nzbhydra2wrapperPy3.py && \
-  chmod +x /app/nzbhydra2/core && \
+  if [ -f /app/nzbhydra2/core ]; then chmod +x /app/nzbhydra2/core; fi && \
   echo "ReleaseType=${NZBHYDRA2_RELEASE_TYPE}\nPackageVersion=${VERSION}\nPackageAuthor=linuxserver.io" > /app/nzbhydra2/package_info && \
   mkdir -p /defaults && \
   curl -o \
