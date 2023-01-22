@@ -56,6 +56,7 @@ app_setup_block: |
 # changelog
 
 changelogs:
+  - { date: "22.01.23:", desc: "Update release URL for arch-specific packages." }
   - { date: "20.01.23:", desc: "Update dependencies for v5." }
   - { date: "03.23.22:", desc: "Upgrade JRE to 17, rebase to ubuntu." }
   - { date: "18.04.22:", desc: "Rebase to Alpine 3.15." }
