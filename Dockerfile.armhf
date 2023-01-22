@@ -49,7 +49,10 @@ RUN \
     /app/nzbhydra2/upstart \
     /app/nzbhydra2/rc.d \
     /app/nzbhydra2/sysv \
-    /app/nzbhydra2/systemd
+    /app/nzbhydra2/systemd \
+    /app/nzbhydra2/WindowsService \
+    /app/nzbhydra2/NZBHydra2.exe \
+    "/app/nzbhydra2/NZBHydra2 Console.exe"
 
 # copy local files
 COPY root/ /
