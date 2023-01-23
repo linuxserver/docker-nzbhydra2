@@ -235,6 +235,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **22.01.23:** - Update release URL for arch-specific packages.
 * **20.01.23:** - Update dependencies for v5.
 * **10.12.22:** - Bump master JRE to v17. Default mapIpToHost to false.
 * **11.09.22:** - Migrate to s6v3.
