@@ -6,7 +6,7 @@ base-files               12ubuntu4.3                              deb
 base-passwd              3.5.52build1                             deb           
 bash                     5.1-6ubuntu1                             deb           
 bsdutils                 1:2.37.2-4ubuntu3                        deb           
-ca-certificates          20211016ubuntu0.22.04.1                  deb           
+ca-certificates          20230311ubuntu0.22.04.1                  deb           
 ca-certificates-java                                              java-archive  
 ca-certificates-java     20190909ubuntu1.2                        deb           
 coreutils                8.32-4.1ubuntu1                          deb           
@@ -158,7 +158,7 @@ ncurses-bin              6.3-2                                    deb
 netcat                   1.218-4ubuntu1                           deb           
 netcat-openbsd           1.218-4ubuntu1                           deb           
 openjdk-17-jre-headless  17.0.7+7~us1-0ubuntu1~22.04.2            deb           
-openssl                  3.0.2-0ubuntu1.9                         deb           
+openssl                  3.0.2-0ubuntu1.10                        deb           
 passwd                   1:4.8.1-2ubuntu2.1                       deb           
 perl-base                5.34.0-3ubuntu1.1                        deb           
 pinentry-curses          1.1.1-1build2                            deb           
