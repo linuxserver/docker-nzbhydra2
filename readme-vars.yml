@@ -7,9 +7,8 @@ project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/ma
 project_blurb: |
   [{{ project_name|capitalize }}]({{ project_url }}) is a meta search application for NZB indexers, the "spiritual successor" to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra).
 
-  It provides easy access to a number of raw and newznab based indexers. The application NZBHydra 2 is currently in its early stages and is in active development. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version.
+  It provides easy access to a number of raw and newznab based indexers.
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
-project_blurb_optional_extras_enabled: false
 # supported architectures
 available_architectures:
   - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
@@ -22,32 +21,22 @@ development_versions_items:
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
-param_usage_include_net: false
-param_usage_include_env: true
-param_env_vars:
-  - {env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London."}
 param_usage_include_vols: true
 param_volumes:
-  - {vol_path: "/config", vol_host_path: "<path to data>", desc: "Where nzbhydra2 should store config files."}
-  - {vol_path: "/downloads", vol_host_path: "<nzb download>", desc: "NZB download folder."}
+  - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/data", desc: "Where nzbhydra2 should store config data."}
 param_usage_include_ports: true
 param_ports:
   - {external_port: "5076", internal_port: "5076", port_desc: "WebUI"}
-param_device_map: false
-cap_add_param: false
-# optional container parameters
-opt_param_usage_include_env: false
-opt_param_usage_include_vols: false
-opt_param_usage_include_ports: false
-opt_param_device_map: false
-opt_cap_add_param: false
-optional_block_1: false
+opt_param_usage_include_vols: true
+opt_param_volumes:
+  - {vol_path: "/downloads", vol_host_path: "/path/to/downloads", desc: "NZB download folder."}
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
-  The web interface is at `<your ip>:5076` , to set up indexers and connections to your nzb download applications.
+  The web interface is at `<your ip>:5076`, to set up indexers and connections to your nzb download applications.
 # changelog
 changelogs:
+  - {date: "18.07.24:", desc: "Rebase to Ubuntu Noble. Remove standalone JRE."}
   - {date: "04.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
   - {date: "22.01.23:", desc: "Update release URL for arch-specific packages."}
   - {date: "20.01.23:", desc: "Update dependencies for v5."}
