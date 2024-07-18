@@ -37,7 +37,7 @@ app_setup_block: |
   The web interface is at `<your ip>:5076` , to set up indexers and connections to your nzb download applications.
 # changelog
 changelogs:
-  - {date: "18.07.24:", desc: "Rebase to Ubuntu Noble."}
+  - {date: "18.07.24:", desc: "Rebase to Ubuntu Noble. Remove standalone JRE."}
   - {date: "04.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
   - {date: "22.01.23:", desc: "Update release URL for arch-specific packages."}
   - {date: "20.01.23:", desc: "Update dependencies for v5."}

@@ -18,7 +18,6 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     libfreetype6 \
-    openjdk-17-jre-headless \
     python3 \
     unzip && \
   echo "**** install nzbhydra2 ****" && \
