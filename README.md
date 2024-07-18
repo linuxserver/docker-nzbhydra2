@@ -41,7 +41,7 @@ Find us at:
 
 [Nzbhydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the "spiritual successor" to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra).
 
-It provides easy access to a number of raw and newznab based indexers. The application NZBHydra 2 is replacing NZBHydra 1 and supports migrating from V1. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version. **NOTE:** The last version that supports migration is `linuxserver/nzbhydra2:v2.10.2-ls49`
+It provides easy access to a number of raw and newznab based indexers.
 
 [![nzbhydra2](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png)](https://github.com/theotherp/nzbhydra2)
 
@@ -89,8 +89,8 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /path/to/data:/config
-      - /nzb/download:/downloads
+      - /path/to/nzbhydra2/data:/config
+      - /path/to/downloads:/downloads #optional
     ports:
       - 5076:5076
     restart: unless-stopped
@@ -105,8 +105,8 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Etc/UTC \
   -p 5076:5076 \
-  -v /path/to/data:/config \
-  -v /nzb/download:/downloads \
+  -v /path/to/nzbhydra2/data:/config \
+  -v /path/to/downloads:/downloads `#optional` \
   --restart unless-stopped \
   lscr.io/linuxserver/nzbhydra2:latest
 ```
@@ -121,7 +121,7 @@ Containers are configured using parameters passed at runtime (such as those abov
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
-| `-v /config` | Where nzbhydra2 should store config files. |
+| `-v /config` | Where nzbhydra2 should store config data. |
 | `-v /downloads` | NZB download folder. |
 
 ## Environment variables from files (Docker secrets)
@@ -285,6 +285,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **18.07.24:** - Rebase to Ubuntu Noble. Remove standalone JRE ([#46](https://github.com/linuxserver/docker-nzbhydra2/pull/46)).
 * **04.07.23:** - Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
 * **22.01.23:** - Update release URL for arch-specific packages.
 * **20.01.23:** - Update dependencies for v5.
