@@ -285,7 +285,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **18.07.24:** - Rebase to Ubuntu Noble.
+* **18.07.24:** - Rebase to Ubuntu Noble. Remove standalone JRE ([#46](https://github.com/linuxserver/docker-nzbhydra2/pull/46)).
 * **04.07.23:** - Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
 * **22.01.23:** - Update release URL for arch-specific packages.
 * **20.01.23:** - Update dependencies for v5.
