@@ -11,7 +11,7 @@ catatonit                    0.1.7-1                            deb
 coreutils                    9.4-3ubuntu6                       deb     
 cron                         3.0pl1-184ubuntu2                  deb     
 cron-daemon-common           3.0pl1-184ubuntu2                  deb     
-curl                         8.5.0-2ubuntu10.3                  deb     
+curl                         8.5.0-2ubuntu10.4                  deb     
 dash                         0.5.12-6ubuntu5                    deb     
 debconf                      1.5.86ubuntu1                      deb     
 debianutils                  5.17build1                         deb     
@@ -53,7 +53,7 @@ libcap-ng0                   0.8.4-2build2                      deb
 libcap2                      1:2.66-5ubuntu2                    deb     
 libcom-err2                  1.47.0-2.4~exp1ubuntu4.1           deb     
 libcrypt1                    1:4.4.36-4build1                   deb     
-libcurl4t64                  8.5.0-2ubuntu10.3                  deb     
+libcurl4t64                  8.5.0-2ubuntu10.4                  deb     
 libdb5.3t64                  5.3.28+dfsg2-7                     deb     
 libdebconfclient0            0.271ubuntu3                       deb     
 libexpat1                    2.6.1-2ubuntu0.1                   deb     
@@ -95,8 +95,8 @@ libpng16-16t64               1.6.43-5build1                     deb
 libproc2-0                   2:4.0.4-4ubuntu3                   deb     
 libpsl5t64                   0.21.2-1.1build1                   deb     
 libpython3-stdlib            3.12.3-0ubuntu2                    deb     
-libpython3.12-minimal        3.12.3-1ubuntu0.1                  deb     
-libpython3.12-stdlib         3.12.3-1ubuntu0.1                  deb     
+libpython3.12-minimal        3.12.3-1ubuntu0.2                  deb     
+libpython3.12-stdlib         3.12.3-1ubuntu0.2                  deb     
 libreadline8t64              8.2-4build1                        deb     
 librtmp1                     2.4+20151223.gitfa8646d.1-2build7  deb     
 libsasl2-2                   2.1.28+dfsg1-5ubuntu3.1            deb     
@@ -139,8 +139,8 @@ procps                       2:4.0.4-4ubuntu3                   deb
 publicsuffix                 20231001.0357-0.1                  deb     
 python3                      3.12.3-0ubuntu2                    deb     
 python3-minimal              3.12.3-0ubuntu2                    deb     
-python3.12                   3.12.3-1ubuntu0.1                  deb     
-python3.12-minimal           3.12.3-1ubuntu0.1                  deb     
+python3.12                   3.12.3-1ubuntu0.2                  deb     
+python3.12-minimal           3.12.3-1ubuntu0.2                  deb     
 readline-common              8.2-4build1                        deb     
 sed                          4.9-2build1                        deb     
 sensible-utils               0.0.22                             deb     
