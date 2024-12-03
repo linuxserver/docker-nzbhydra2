@@ -34,6 +34,49 @@ opt_param_volumes:
 app_setup_block_enabled: true
 app_setup_block: |
   The web interface is at `<your ip>:5076`, to set up indexers and connections to your nzb download applications.
+# init diagram
+init_diagram: |
+  "nzbhydra2:dev": {
+    docker-mods
+    base {
+      fix-attr +\nlegacy cont-init
+    }
+    docker-mods -> base
+    legacy-services
+    custom services
+    init-services -> legacy-services
+    init-services -> custom services
+    custom services -> legacy-services
+    legacy-services -> ci-service-check
+    init-migrations -> init-adduser
+    init-os-end -> init-config
+    init-config -> init-config-end
+    init-nzbhydra2-config -> init-config-end
+    init-os-end -> init-crontab-config
+    init-mods-end -> init-custom-files
+    base -> init-envfile
+    base -> init-migrations
+    base -> init-mods
+    init-config-end -> init-mods
+    init-mods -> init-mods-end
+    init-mods-package-install -> init-mods-end
+    init-mods -> init-mods-package-install
+    init-config -> init-nzbhydra2-config
+    base -> init-os-end
+    init-adduser -> init-os-end
+    init-envfile -> init-os-end
+    init-migrations -> init-os-end
+    init-custom-files -> init-services
+    init-mods-end -> init-services
+    init-services -> svc-cron
+    svc-cron -> legacy-services
+    init-services -> svc-nzbhydra2
+    svc-nzbhydra2 -> legacy-services
+  }
+  Base Images: {
+    "baseimage-ubuntu:noble"
+  }
+  "nzbhydra2:dev" <- Base Images
 # changelog
 changelogs:
   - {date: "18.07.24:", desc: "Rebase to Ubuntu Noble. Remove standalone JRE ([#47](https://github.com/linuxserver/docker-nzbhydra2/pull/47))."}
