@@ -45,11 +45,13 @@ jobs:
             | jq -r '.token')
             multidigest=$(curl -s \
               --header "Accept: application/vnd.docker.distribution.manifest.v2+json" \
+              --header "Accept: application/vnd.oci.image.index.v1+json" \
               --header "Authorization: Bearer ${token}" \
               "https://ghcr.io/v2/${image}/manifests/${tag}" \
               | jq -r 'first(.manifests[].digest)')
             digest=$(curl -s \
               --header "Accept: application/vnd.docker.distribution.manifest.v2+json" \
+              --header "Accept: application/vnd.oci.image.index.v1+json" \
               --header "Authorization: Bearer ${token}" \
               "https://ghcr.io/v2/${image}/manifests/${multidigest}" \
               | jq -r '.config.digest')
