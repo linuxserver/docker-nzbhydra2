@@ -9,6 +9,7 @@ project_blurb: |
 
   It provides easy access to a number of raw and newznab based indexers.
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
+project_categories: "Indexers"
 # supported architectures
 available_architectures:
   - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
