@@ -5,7 +5,7 @@ project_name: nzbhydra2
 project_url: "https://github.com/theotherp/nzbhydra2"
 project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png"
 project_blurb: |
-  [{{ project_name|capitalize }}]({{ project_url }}) is a meta search application for NZB indexers, the "spiritual successor" to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra).
+  [{{ project_name|capitalize }}]({{ project_url }}) is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra).
 
   It provides easy access to a number of raw and newznab based indexers.
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
