@@ -904,7 +904,7 @@ pipeline {
                 -e WEB_AUTH=\"${CI_AUTH}\" \
                 -e WEB_PATH=\"${CI_WEBPATH}\" \
                 -e NODE_NAME=\"${NODE_NAME}\" \
-                -e SYFT_IMAGE_TAG=\"${CI_SYFT_IMAGE_TAG:${SYFT_IMAGE_TAG}}\" \
+                -e SYFT_IMAGE_TAG=\"${CI_SYFT_IMAGE_TAG:-${SYFT_IMAGE_TAG}}\" \
                 -t ghcr.io/linuxserver/ci:latest \
                 python3 test_build.py'''
         }
