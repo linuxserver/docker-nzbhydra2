@@ -94,7 +94,7 @@ libpcre2-8-0                 10.42-4ubuntu2.1                   deb
 libpng16-16t64               1.6.43-5build1                     deb     
 libproc2-0                   2:4.0.4-4ubuntu3.2                 deb     
 libpsl5t64                   0.21.2-1.1build1                   deb     
-libpython3-stdlib            3.12.3-0ubuntu2                    deb     
+libpython3-stdlib            3.12.3-0ubuntu2.1                  deb     
 libpython3.12-minimal        3.12.3-1ubuntu0.8                  deb     
 libpython3.12-stdlib         3.12.3-1ubuntu0.8                  deb     
 libreadline8t64              8.2-4build1                        deb     
@@ -137,8 +137,8 @@ perl-base                    5.38.2-3.2ubuntu0.2                deb
 pinentry-curses              1.2.1-3ubuntu5                     deb     
 procps                       2:4.0.4-4ubuntu3.2                 deb     
 publicsuffix                 20231001.0357-0.1                  deb     
-python3                      3.12.3-0ubuntu2                    deb     
-python3-minimal              3.12.3-0ubuntu2                    deb     
+python3                      3.12.3-0ubuntu2.1                  deb     
+python3-minimal              3.12.3-0ubuntu2.1                  deb     
 python3.12                   3.12.3-1ubuntu0.8                  deb     
 python3.12-minimal           3.12.3-1ubuntu0.8                  deb     
 readline-common              8.2-4build1                        deb     
